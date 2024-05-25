@@ -52,7 +52,9 @@ public class PaymentErrorService {
 
     private int extractRetryCountFromError(String error) {
         // Extract the retry count from the error message
-        return Integer.parseInt(error.split(":")[3].trim());
+        String[] split = error.split(":");
+        String count = split[4];
+        return Integer.parseInt(count.trim());
     }
 
     private String createRetryMessage(String orderId, int retryCount) {

@@ -32,7 +32,7 @@ public class PaymentRetryService {
 
         try {
             // Simulate payment processing
-            if (Math.random() > 0.5) { // Simulate a random failure
+            if (Math.random() > 0.01) { // Simulate a random failure
                 throw new RuntimeException("Payment processing failed for order: " + orderId);
             }
             String paymentStatus = "Payment processed for order: " + orderId;

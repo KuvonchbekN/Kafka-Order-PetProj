@@ -9,9 +9,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class DeadLetterService {
 
-    @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
-
     @KafkaListener(topics = "orders.DLT", groupId = "dlt-group")
     public void processDeadLetter(String message) {
         System.out.println("Processing dead letter message: " + message);
